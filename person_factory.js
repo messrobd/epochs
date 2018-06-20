@@ -6,7 +6,7 @@ const person = Object.create({}, {
         if (typeof newName != 'string') throw 'name must be a string';
       }
       catch(error) {
-        return error;
+        throw error;
       }
       name = newName;
     }
@@ -14,8 +14,11 @@ const person = Object.create({}, {
   birthDate: {
     get() {return birthDate;},
     set(newBirth) {
-      if (typeof newBirth != 'number') {
-        throw 'birth date must be a number';
+      try {
+        if (typeof newBirth != 'number') throw 'birth date must be a number';
+      }
+      catch(error) {
+        throw error;
       }
       birthDate = newBirth;
     }
@@ -23,11 +26,13 @@ const person = Object.create({}, {
   deathDate: {
     get() {return deathDate;},
     set(newDeath) {
-      if (typeof newDeath != 'number') {
-        throw 'death date must be a number';
+      try {
+        if (typeof newDeath != 'number') throw 'death date must be a number';
+        if (typeof this.birthDate == undefined) throw 'birth date must be defined';
+        if (newDeath < this.birthDate) throw 'birth date must precede death date';
       }
-      if (typeof this.birthDate == undefined || newDeath < this.birthDate) {
-        throw 'birth date must preceed death date';
+      catch(error) {
+        throw error;
       }
       deathDate = newDeath;
     }
@@ -40,9 +45,9 @@ function createPerson(name, birthDate, deathDate) {
     newPerson.name = name;
     newPerson.birthDate = birthDate;
     newPerson.deathDate = deathDate;
+    return newPerson;
   }
   catch(error) {
     console.log('Invalid person: ' + error);
   }
-  return newPerson;
 }
