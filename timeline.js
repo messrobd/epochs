@@ -7,7 +7,7 @@ const timeline = {
     let startTime = this.people[0].birthDate,
         endTime = this.people[0].deathDate;
     this.people.forEach(function(person){
-      startTime = person.birthDate < startTime ? person.startTime : startTime; 
+      startTime = person.birthDate < startTime ? person.startTime : startTime;
       endTime = person.deathDate > endTime ? person.deathDate : endTime;
     });
     return [startTime, endTime];
@@ -16,4 +16,14 @@ const timeline = {
     this.people.push(person);
     this.measureTimeline();
   }
+}
+
+function renderTimeSpan(person) {
+  let timeline = $('#timeline'),
+      timeSpan = person.deathDate - person.birthDate;
+  timeline.append(
+  '<div style="' +
+  'width: ' + timeSpan + 'px; ' +
+  'height: 10px;' +
+  '"></div>');
 }
