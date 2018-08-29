@@ -15,34 +15,34 @@ const person = {
     }
     Object.defineProperty(this, 'name', descriptor(name));
   },
-  setBirthDate: function (birthDate) {
+  setBirthYear: function (birthYear) {
     try {
-      if (typeof birthDate != 'number') throw 'birth date must be a number';
+      if (typeof birthYear != 'number') throw 'birth Year must be a number';
     }
     catch(error) {
       throw error;
     }
-    Object.defineProperty(this, 'birthDate', descriptor(birthDate));
+    Object.defineProperty(this, 'birthYear', descriptor(birthYear));
   },
-  setDeathDate: function (deathDate) {
+  setDeathYear: function (deathYear) {
     try {
-      if (typeof deathDate != 'number') throw 'death date must be a number';
-      if (typeof this.birthDate == undefined) throw 'birth date must be defined';
-      if (deathDate < this.birthDate) throw 'birth date must precede death date';
+      if (typeof deathYear != 'number') throw 'death Year must be a number';
+      if (typeof this.birthYear == undefined) throw 'birth Year must be defined';
+      if (deathYear < this.birthYear) throw 'birth Year must precede death Year';
     }
     catch(error) {
       throw error;
     }
-    Object.defineProperty(this, 'deathDate', descriptor(deathDate));
+    Object.defineProperty(this, 'deathYear', descriptor(deathYear));
   }
 };
 
-function createPerson(name, birthDate, deathDate) {
+function createPerson(name, birthYear, deathYear) {
   let newPerson = Object.create(person);
   try {
     newPerson.setName(name);
-    newPerson.setBirthDate(birthDate);
-    newPerson.setDeathDate(deathDate);
+    newPerson.setBirthYear(birthYear);
+    newPerson.setDeathYear(deathYear);
   }
   catch(error) {
     console.log('Invalid person: ' + error);
