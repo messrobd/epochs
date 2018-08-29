@@ -1,4 +1,4 @@
-const person = Object.create({}, {
+const person = Object.create({}/*, {
   name: {
     get() {return name;},
     set(newName) {
@@ -37,7 +37,7 @@ const person = Object.create({}, {
       deathDate = newDeath;
     }
   }
-});
+}*/);
 
 function createPerson(name, birthDate, deathDate) {
   newPerson = Object.create(person);

@@ -1,6 +1,6 @@
-const timeline = {
+const timeSpans = {
   people: [],
-  measureTimeline: function() {
+  measureTimeSpan: function() {
     if (this.people.length === 0) {
       return undefined;
     }
@@ -14,16 +14,15 @@ const timeline = {
   },
   addPerson: function(person) {
     this.people.push(person);
-    this.measureTimeline();
+    this.measureTimeSpan();
   }
 }
 
 function renderTimeSpan(person) {
-  let timeline = $('#timeline'),
+  let timeSpans = $('#time-spans'),
       timeSpan = person.deathDate - person.birthDate;
-  timeline.append(
-  '<div style="' +
+  timeSpans.append(
+  '<div class="time-span" style="' +
   'width: ' + timeSpan + 'px; ' +
-  'height: 10px;' +
   '"></div>');
 }
