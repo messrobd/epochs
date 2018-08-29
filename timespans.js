@@ -4,11 +4,11 @@ const timeSpans = {
     if (this.people.length === 0) {
       return undefined;
     }
-    let startTime = this.people[0].birthDate,
-        endTime = this.people[0].deathDate;
+    let startTime = this.people[0].birthYear,
+        endTime = this.people[0].deathYear;
     this.people.forEach(function(person){
-      startTime = person.birthDate < startTime ? person.startTime : startTime;
-      endTime = person.deathDate > endTime ? person.deathDate : endTime;
+      startTime = person.birthYear < startTime ? person.startTime : startTime;
+      endTime = person.deathYear > endTime ? person.deathYear : endTime;
     });
     return [startTime, endTime];
   },
@@ -20,7 +20,7 @@ const timeSpans = {
 
 function renderTimeSpan(person) {
   let timeSpans = $('#time-spans'),
-      timeSpan = person.deathDate - person.birthDate;
+      timeSpan = person.deathYear - person.birthYear;
   timeSpans.append(
   '<div class="time-span" style="' +
   'width: ' + timeSpan + 'px; ' +
