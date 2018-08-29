@@ -18,6 +18,7 @@ const timeSpans = {
   }
 }
 
+//todo: remove obsolete function 
 function renderTimeSpan(person) {
   let timeSpans = $('#time-spans'),
       timeSpan = person.deathYear - person.birthYear;
@@ -25,4 +26,20 @@ function renderTimeSpan(person) {
   '<div class="time-span" style="' +
   'width: ' + timeSpan + 'px; ' +
   '"></div>');
+}
+
+function renderTimeSpans(timeSpans) {
+  let startTime = timeSpans.measureTimeSpan()[0],
+      endTime = timeSpans.measureTimeSpan()[1],
+      timeSpanPeople = timeSpans.people,
+      timeSpanContainer = $('#time-spans');
+  timeSpanPeople.forEach(function(person) {
+    let timeSpan = person.deathYear - person.birthYear,
+        startOffset = person.birthYear - startTime;
+    timeSpanContainer.append(
+    '<div class="time-span" style="' +
+    'margin-left: ' + startOffset + 'px; ' +
+    'width: ' + timeSpan + 'px; ' +
+    '"></div>');
+  });
 }
