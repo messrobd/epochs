@@ -9,22 +9,26 @@
     <script src="epochs.js"></script>
   </head>
   <body>
-    <div id="epochs">
-
+    <div id="data">
+      <div id="epochs">
+        
+      </div>
+      <button name="add-epoch-invoke">Add a new epoch</button>
     </div>
-    <form name="add-epoch" id="add-epoch">
-      <fieldset>
-        <legend>Add a new epoch</legend>
-        Label:
-        <input type="text" name="name" required><br>
-        Start year:
-        <input type="number" name="start-year" pattern="[0-9]{4}" required><br>
-        End year:
-        <input type="number" name="end-year" pattern="[0-9]{4}" required><br>
-        <input type="submit" name="add-epoch-action" value="Add epoch">
-
-      </fieldset>
-    </form>
+    <div id="modal" class="hide">
+      <form name="add-epoch" id="add-epoch">
+        <fieldset>
+          <legend>Add a new epoch</legend>
+          Label:
+          <input type="text" name="name" required><br>
+          Start year:
+          <input type="number" name="start-year" pattern="[0-9]{4}" required><br>
+          End year:
+          <input type="number" name="end-year" pattern="[0-9]{4}" required><br>
+          <input type="submit" name="add-epoch-action" value="Add epoch">
+        </fieldset>
+      </form>
+    </div>
     <script src="addEpoch.js"></script>
   </body>
 </html>
