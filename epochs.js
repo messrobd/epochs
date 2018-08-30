@@ -32,13 +32,3 @@ const epochs = {
     });
   }
 }
-
-//todo: remove obsolete function
-function renderTimeSpan(person) {
-  let timeSpans = $('#time-spans'),
-      timeSpan = person.deathYear - person.birthYear;
-  timeSpans.append(
-  '<div class="time-span" style="' +
-  'width: ' + timeSpan + 'px; ' +
-  '"></div>');
-}
