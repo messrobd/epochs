@@ -18,6 +18,7 @@ const epochs = {
   updateEpochsView: function() {
     let startYear = this.measureEra()[0],
         epochContainer = $('#epochs');
+    epochContainer.empty();
     this.epochs.forEach(function(epoch) {
       let epochLength = epoch.endYear - epoch.startYear,
           epochOffset = epoch.startYear - startYear;
