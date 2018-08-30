@@ -1,8 +1,8 @@
-#time-spans {
+#epochs {
   width: fit-content;
   margin: 0 auto
 }
-.time-span {
+.epoch {
   background-color: black;
   height: 10px;
   margin: 10px 0

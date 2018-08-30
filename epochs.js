@@ -1,0 +1,41 @@
+const epochs = {
+  epochs: [],
+  measureEra: function() {
+    if (this.epochs.length === 0) {
+      return undefined;
+    }
+    let startYear = this.epochs[0].startYear,
+        endYear = this.epochs[0].endYear;
+    this.epochs.forEach(function(epoch){
+      startYear = epoch.startYear < startYear ? epoch.startYear : startYear;
+      endYear = epoch.endYear > endYear ? epoch.endYear : endYear;
+    });
+    return [startYear, endYear];
+  },
+  addEpoch: function(epoch) {
+    this.epochs.push(epoch);
+  },
+  updateEpochsView: function() {
+    let startYear = this.measureEra()[0],
+        epochContainer = $('#epochs');
+    this.epochs.forEach(function(epoch) {
+      let epochLength = epoch.endYear - epoch.startYear,
+          epochOffset = epoch.startYear - startYear;
+      epochContainer.append(
+      '<div class="epoch" style="' +
+      'margin-left: ' + epochOffset + 'px; ' +
+      'width: ' + epochLength + 'px; ' +
+      '"></div>');
+    });
+  }
+}
+
+//todo: remove obsolete function
+function renderTimeSpan(person) {
+  let timeSpans = $('#time-spans'),
+      timeSpan = person.deathYear - person.birthYear;
+  timeSpans.append(
+  '<div class="time-span" style="' +
+  'width: ' + timeSpan + 'px; ' +
+  '"></div>');
+}
