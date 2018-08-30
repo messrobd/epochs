@@ -17,6 +17,8 @@ $(form).submit((event) => {
   epochs.addEpoch(newEpoch);
   epochs.updateEpochsView();
   $(form)[0].reset();
-  toggleVisibility(); 
+  toggleVisibility();
   event.preventDefault();
 });
+
+$('button[name=cancel-add-epoch]').click(toggleVisibility)

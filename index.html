@@ -11,12 +11,12 @@
   <body>
     <div id="data">
       <div id="epochs">
-        
+
       </div>
       <button name="add-epoch-invoke">Add a new epoch</button>
     </div>
     <div id="modal" class="hide">
-      <form name="add-epoch" id="add-epoch">
+      <form name="add-epoch">
         <fieldset>
           <legend>Add a new epoch</legend>
           Label:
@@ -26,6 +26,8 @@
           End year:
           <input type="number" name="end-year" pattern="[0-9]{4}" required><br>
           <input type="submit" name="add-epoch-action" value="Add epoch">
+          <button name="cancel-add-epoch">Cancel</button>
+
         </fieldset>
       </form>
     </div>
