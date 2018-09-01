@@ -1,3 +1,6 @@
+body {
+  font-family: monospace;
+}
 #data, form {
   padding-top: 25%;
   width: fit-content;
@@ -25,4 +28,7 @@
 }
 form {
   background-color: white;
+}
+button, input[type=submit] {
+  font-family: inherit; /*to do: figure out how to apply font to submit btn*/
 }
