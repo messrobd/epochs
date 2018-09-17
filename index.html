@@ -4,14 +4,32 @@
     <meta charset="utf-8">
     <title>Timeline</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="epoch_factory.js"></script>
     <script src="epochs.js"></script>
-    <script src="test.js"></script>
   </head>
   <body>
-    <div id="epochs">
+    <div id="app">
+      <div id="epochs">
 
+      </div>
+      <button name="add-epoch-invoke">Add a new epoch</button>
     </div>
+    <div id="modal" class="hide">
+      <form name="add-epoch">
+        <fieldset>
+          <legend>Add a new epoch</legend>
+          Label:
+          <input type="text" name="name" required><br>
+          Start year:
+          <input type="number" name="start-year" pattern="[0-9]{4}" required><br>
+          End year:
+          <input type="number" name="end-year" pattern="[0-9]{4}"><br>
+          <input type="submit" name="add-epoch-action" value="Add epoch">
+          <button name="cancel-add-epoch">Cancel</button>
+
+        </fieldset>
+      </form>
+    </div>
+    <script src="addEpoch.js"></script>
   </body>
 </html>

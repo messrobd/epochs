@@ -1,0 +1,25 @@
+{
+  "name": "epochs",
+  "version": "0.1.0",
+  "description": "visualiser for epochs ",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/messrobd/timespans.git"
+  },
+  "author": "rob messenger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/messrobd/timespans/issues"
+  },
+  "homepage": "https://github.com/messrobd/timespans#readme",
+  "devDependencies": {
+    "electron": "^2.0.9"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

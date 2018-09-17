@@ -14,28 +14,21 @@ const epochs = {
   },
   addEpoch: function(epoch) {
     this.epochs.push(epoch);
+    this.epochs.sort((a, b) => a.startYear - b.startYear)
   },
   updateEpochsView: function() {
     let startYear = this.measureEra()[0],
         epochContainer = $('#epochs');
+    epochContainer.empty();
     this.epochs.forEach(function(epoch) {
-      let epochLength = epoch.endYear - epoch.startYear,
-          epochOffset = epoch.startYear - startYear;
+      let epochOffset = epoch.startYear - startYear,
+          epochLength = epoch.endYear - epoch.startYear;
       epochContainer.append(
-      '<div class="epoch" style="' +
-      'margin-left: ' + epochOffset + 'px; ' +
-      'width: ' + epochLength + 'px; ' +
-      '"></div>');
+        '<div class="epoch" style="' +
+        `margin-left: ${epochOffset}px;`  +
+        `width: ${epochLength}px;` +
+        '"></div>'
+      );
     });
   }
-}
-
-//todo: remove obsolete function
-function renderTimeSpan(person) {
-  let timeSpans = $('#time-spans'),
-      timeSpan = person.deathYear - person.birthYear;
-  timeSpans.append(
-  '<div class="time-span" style="' +
-  'width: ' + timeSpan + 'px; ' +
-  '"></div>');
 }
