@@ -18,5 +18,8 @@
   "homepage": "https://github.com/messrobd/timespans#readme",
   "devDependencies": {
     "electron": "^2.0.9"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }

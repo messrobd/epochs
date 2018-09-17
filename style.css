@@ -1,7 +1,7 @@
 body {
   font-family: monospace;
 }
-#data, form {
+#app, form {
   padding-top: 25%;
   width: fit-content;
   margin: 0 auto;

@@ -1,3 +1,5 @@
+window.$ = window.jQuery = require('jquery');
+
 function thisYear() {
   today = new Date();
   return today.getFullYear();
