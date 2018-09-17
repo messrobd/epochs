@@ -1,4 +1,4 @@
-window.$ = window.jQuery = require('jquery');
+window.$ = window.jQuery = require('jquery'); //TODO: why did this fix it? 
 
 function thisYear() {
   today = new Date();
