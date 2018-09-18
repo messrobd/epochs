@@ -6,7 +6,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/32421-birthday-cake-icon-emoji-png-1.png.png.icns --prune=true --out=release_builds"
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon='assets/icons/mac/32421-birthday-cake-icon-emoji-png-1.png.png.icns' --prune=true --out=release_builds --app-bundle-id='messrobd.epochs' --osx-sign",
+    "package-win": "electron-packager . epochs --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/32421-birthday-cake-icon-emoji-png-1.png.png.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Epochs\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "electron-packager": "^12.1.2"
   },
   "dependencies": {
+    "electron-osx-sign": "^0.4.10",
     "jquery": "^3.3.1"
   }
 }

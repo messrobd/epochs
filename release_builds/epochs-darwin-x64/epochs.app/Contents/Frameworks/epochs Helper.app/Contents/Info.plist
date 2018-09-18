@@ -5,7 +5,7 @@
     <key>BuildMachineOSBuild</key>
     <string>16G1510</string>
     <key>CFBundleIdentifier</key>
-    <string>com.electron.epochs.helper</string>
+    <string>messrobd.epochs.helper</string>
     <key>CFBundleName</key>
     <string>epochs</string>
     <key>CFBundlePackageType</key>

@@ -9,7 +9,7 @@
     <key>CFBundleExecutable</key>
     <string>epochs Helper NP</string>
     <key>CFBundleIdentifier</key>
-    <string>com.electron.epochs.helper.NP</string>
+    <string>messrobd.epochs.helper.NP</string>
     <key>CFBundleName</key>
     <string>epochs Helper NP</string>
     <key>CFBundlePackageType</key>
