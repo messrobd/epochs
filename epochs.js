@@ -18,17 +18,15 @@ const epochs = {
   },
   updateEpochsView: function() {
     let startYear = this.measureEra()[0],
-        epochContainer = $('#epochs');
-    epochContainer.empty();
+        epochContainer = document.getElementById('epochs');
+    //epochContainer.empty();
     this.epochs.forEach(function(epoch) {
       let epochOffset = epoch.startYear - startYear,
-          epochLength = epoch.endYear - epoch.startYear;
-      epochContainer.append(
-        '<div class="epoch" style="' +
-        `margin-left: ${epochOffset}px;`  +
-        `width: ${epochLength}px;` +
-        '"></div>'
-      );
+          epochLength = epoch.endYear - epoch.startYear,
+          epochVisual = document.createElement('div');
+      epochVisual.className = 'epoch';
+      epochVisual.style = `margin-left: ${epochOffset}px; width: ${epochLength}px;`;
+      epochContainer.appendChild(epochVisual);
     });
   }
 }
