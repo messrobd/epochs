@@ -17,16 +17,23 @@ const epochs = {
     this.epochs.sort((a, b) => a.startYear - b.startYear)
   },
   updateEpochsView: function() {
-    let startYear = this.measureEra()[0],
-        epochContainer = document.getElementById('epochs');
-    //epochContainer.empty();
-    this.epochs.forEach(function(epoch) {
-      let epochOffset = epoch.startYear - startYear,
-          epochLength = epoch.endYear - epoch.startYear,
-          epochVisual = document.createElement('div');
-      epochVisual.className = 'epoch';
+    let startYear = this.epochs[0].startYear,
+        epochVisuals = document.getElementsByClassName('epoch'),
+        epochContainer = document.getElementById('epochs'),
+        epochOffset,
+        epochLength,
+        epochVisual;
+    for (let i = 0; i < this.epochs.length; i++) {
+      epochOffset = this.epochs[i].startYear - startYear;
+      epochLength = this.epochs[i].endYear - this.epochs[i].startYear;
+      if (i === this.epochs.length - 1) {
+        epochVisual = document.createElement('div');
+        epochVisual.className = 'epoch';
+        epochContainer.appendChild(epochVisual);
+      } else {
+        epochVisual = epochVisuals[i];
+      }
       epochVisual.style = `margin-left: ${epochOffset}px; width: ${epochLength}px;`;
-      epochContainer.appendChild(epochVisual);
-    });
+    }
   }
 }
