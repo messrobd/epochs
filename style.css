@@ -37,6 +37,10 @@ body {
 form {
   background-color: white;
 }
+button[name=add-epoch-invoke] {
+  display: block;
+  margin: 10px auto;  
+}
 button, input[type=submit] {
   font-family: inherit; /*to do: figure out how to apply font to submit btn*/
 }
