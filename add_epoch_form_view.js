@@ -18,4 +18,7 @@ form.onsubmit = (event) => {
   event.preventDefault();
 };
 
-buttons.namedItem('cancel-add-epoch').onclick = () => toggleVisibility(modal);
+buttons.namedItem('cancel-add-epoch').onclick = () => {
+  form.reset();
+  toggleModal(modal);
+}
