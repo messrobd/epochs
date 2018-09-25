@@ -36,7 +36,7 @@ const epochs = {
             } else {
               epochLabel = epochLabels[r];
             }
-            epochLabel.innerHtml = this.epochs[r].name; //TODO find correct method for adding label
+            epochLabel.innerHTML = this.epochs[r].name;
             break;
           case 1:
             epochOffset = this.epochs[r].startYear - startYear;
