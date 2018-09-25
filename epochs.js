@@ -18,22 +18,40 @@ const epochs = {
   },
   updateEpochsView: function() {
     let startYear = this.epochs[0].startYear,
+        epochLabels = document.getElementsByClassName('epoch-label'),
         epochVisuals = document.getElementsByClassName('epoch'),
         epochContainer = document.getElementById('epochs'),
         epochOffset,
         epochLength,
+        epochLabel,
         epochVisual;
-    for (let i = 0; i < this.epochs.length; i++) {
-      epochOffset = this.epochs[i].startYear - startYear;
-      epochLength = this.epochs[i].endYear - this.epochs[i].startYear;
-      if (i === this.epochs.length - 1) {
-        epochVisual = document.createElement('div');
-        epochVisual.className = 'epoch';
-        epochContainer.appendChild(epochVisual);
-      } else {
-        epochVisual = epochVisuals[i];
+    for (let r = 0; r < this.epochs.length; r++) {
+      for (let c = 0; c <= 1; c++) {
+        switch (c) {
+          case 0:
+            if (r === this.epochs.length - 1) {
+              epochLabel = document.createElement('div');
+              epochLabel.className = 'epoch-label';
+              epochContainer.appendChild(epochLabel);
+            } else {
+              epochLabel = epochLabels[r];
+            }
+            epochLabel.innerHtml = this.epochs[r].name; //TODO find correct method for adding label
+            break;
+          case 1:
+            epochOffset = this.epochs[r].startYear - startYear;
+            epochLength = this.epochs[r].endYear - this.epochs[r].startYear;
+            if (r === this.epochs.length - 1) {
+              epochVisual = document.createElement('div');
+              epochVisual.className = 'epoch';
+              epochContainer.appendChild(epochVisual);
+            } else {
+              epochVisual = epochVisuals[r];
+            }
+            epochVisual.style = `margin-left: ${epochOffset}px; width: ${epochLength}px;`;
+            break;
+        }
       }
-      epochVisual.style = `margin-left: ${epochOffset}px; width: ${epochLength}px;`;
     }
   }
 }

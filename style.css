@@ -6,6 +6,10 @@ body {
   width: fit-content;
   margin: 0 auto;
 }
+#epochs {
+  display:grid;
+  grid-template-columns: auto auto;
+}
 .epoch {
   background-color: black;
   height: 10px;
