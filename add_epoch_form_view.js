@@ -12,7 +12,11 @@ form.onsubmit = (event) => {
       epochEnd = Number(fields.namedItem('end-year').value || thisYear()),
       newEpoch = createEpoch(epochName, epochStart, epochEnd);
   epochs.addEpoch(newEpoch);
-  epochs.updateEpochsView();
+  try {
+    epochs.updateEpochsView();
+  } catch(err) {
+    console.log(err);
+  }
   form.reset();
   toggleModal(modal);
   event.preventDefault();

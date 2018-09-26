@@ -18,36 +18,34 @@ const epochs = {
   },
   updateEpochsView: function() {
     let startYear = this.epochs[0].startYear,
-        epochLabels = document.getElementsByClassName('epoch-label'),
-        epochVisuals = document.getElementsByClassName('epoch'),
+        epochsNum = this.epochs.length,
         epochContainer = document.getElementById('epochs'),
-        epochOffset,
-        epochLength,
         epochLabel,
-        epochVisual;
+        epochVisual,
+        epochOffset,
+        epochLength;
+    let selectDiv = function(className, row) {
+      let div;
+      if (row === epochsNum - 1) {
+        div = document.createElement('div');
+        div.className = className;
+        epochContainer.appendChild(div);
+      } else {
+        div = document.getElementsByClassName(className)[row];
+      }
+      return div;
+    }
     for (let r = 0; r < this.epochs.length; r++) {
       for (let c = 0; c <= 1; c++) {
         switch (c) {
           case 0:
-            if (r === this.epochs.length - 1) {
-              epochLabel = document.createElement('div');
-              epochLabel.className = 'epoch-label';
-              epochContainer.appendChild(epochLabel);
-            } else {
-              epochLabel = epochLabels[r];
-            }
+            epochLabel = selectDiv('epoch-label', r);
             epochLabel.innerHTML = this.epochs[r].name;
             break;
           case 1:
             epochOffset = this.epochs[r].startYear - startYear;
             epochLength = this.epochs[r].endYear - this.epochs[r].startYear;
-            if (r === this.epochs.length - 1) {
-              epochVisual = document.createElement('div');
-              epochVisual.className = 'epoch';
-              epochContainer.appendChild(epochVisual);
-            } else {
-              epochVisual = epochVisuals[r];
-            }
+            epochVisual = selectDiv('epoch', r);
             epochVisual.style = `margin-left: ${epochOffset}px; width: ${epochLength}px;`;
             break;
         }
