@@ -18,35 +18,28 @@ const epochs = {
   },
   updateEpochsView: function() {
     let startYear = this.epochs[0].startYear,
-        epochsNum = this.epochs.length,
         epochContainer = document.getElementById('epochs'),
-        epochLabel,
-        epochVisual,
         epochOffset,
         epochLength;
-    let selectDiv = function(className, row) {
-      let div;
-      if (row === epochsNum - 1) {
-        div = document.createElement('div');
-        div.className = className;
-        epochContainer.appendChild(div);
-      } else {
-        div = document.getElementsByClassName(className)[row];
-      }
-      return div;
-    }
+    let addCell = (cellType) => {
+      let div = document.createElement('div');
+      div.className = cellType;
+      epochContainer.appendChild(div);
+    };
+    addCell('epoch-label');
+    addCell('epoch');
+    let epochLabels = document.getElementsByClassName('epoch-label'),
+        epochVisuals = document.getElementsByClassName('epoch');
     for (let r = 0; r < this.epochs.length; r++) {
       for (let c = 0; c <= 1; c++) {
         switch (c) {
           case 0:
-            epochLabel = selectDiv('epoch-label', r);
-            epochLabel.innerHTML = this.epochs[r].name;
+            epochLabels[r].innerHTML = this.epochs[r].name;
             break;
           case 1:
             epochOffset = this.epochs[r].startYear - startYear;
             epochLength = this.epochs[r].endYear - this.epochs[r].startYear;
-            epochVisual = selectDiv('epoch', r);
-            epochVisual.style = `margin-left: ${epochOffset}px; width: ${epochLength}px;`;
+            epochVisuals[r].style = `margin-left: ${epochOffset}px; width: ${epochLength}px;`;
             break;
         }
       }
